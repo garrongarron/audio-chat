@@ -1,4 +1,5 @@
 const mySelf = {
-    id:null
+    id:null,
+    room:null
 }
 export default mySelf

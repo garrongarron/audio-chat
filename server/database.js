@@ -12,6 +12,11 @@ const setRooms = (roomId, userId) => {
         }
     }
 }
+const closeRoom  = (roomId) =>{
+    console.log(rooms,roomId );
+    rooms[roomId].open = false
+    console.log(rooms,roomId );
+}
 
 const getOpenRooms = () => {
     let roomList = []
@@ -46,5 +51,6 @@ module.exports = {
     getOpenRooms,
     setRooms,
     getList,
-    removeUser
+    removeUser,
+    closeRoom
 }

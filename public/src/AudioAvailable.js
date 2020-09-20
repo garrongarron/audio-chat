@@ -15,7 +15,6 @@ let audioAvailable = (stream) => {
 let sendAudio = (stream) => {
     socket.on('user-connected', data => {
         let user = data[0]
-        // console.log('user-connected', data);
         const call = myPeer.call(user, stream)//yo envio audio del nuevo usuario (despues de mi entrada)
         let audio = mediaFactody()
         let contenedor = document.querySelector('.u-'+user)

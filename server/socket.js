@@ -1,9 +1,14 @@
-const { userList, getOpenRooms, setRooms, getList, removeUser } = require('./database');
+const { userList, getOpenRooms, setRooms, getList, removeUser, closeRoom} = require('./database');
 
 const setSocketIo = (io) => {
     io.on('connection', socket => {
         socket.on('get-rooms', (string) => {
             socket.emit('available-rooms', getOpenRooms())//a si mismo
+        })
+        socket.on('close-rooms', (roomId) => {
+            console.log(getOpenRooms());
+            closeRoom(roomId);
+            
         })
         socket.on('join-room', (roomId, userId, username) => {
 

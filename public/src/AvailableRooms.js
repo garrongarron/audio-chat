@@ -24,7 +24,8 @@ const showAvailableRooms = (mySelf, socket, username) => {
                 li.addEventListener('click', (e) => {
                     ul.classList.add('hide')
                     clearInterval(interval)
-                    socket.emit('join-room', li.innerText, mySelf.id, username)
+                    mySelf.room = li.innerText
+                    socket.emit('join-room', mySelf.room, mySelf.id, username)
                 })
             }
         });
@@ -40,6 +41,7 @@ const showAvailableRooms = (mySelf, socket, username) => {
         if (e.keyCode == 13 && input.value.length > 3) {
             ul.classList.add('hide')
             clearInterval(interval)
+            mySelf.room = input.value
             socket.emit('join-room', input.value, mySelf.id, username)
         }
     })

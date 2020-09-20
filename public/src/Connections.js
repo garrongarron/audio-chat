@@ -6,7 +6,6 @@ let setSocket = (socket) => {
         populate(data)
     })
     socket.on('welcome', data => {
-        console.log(data);
         populate(data)
     })
     socket.on('user-disconnected', data => {

@@ -58,3 +58,9 @@ ul.rooms{
 .hide{
     display: none !important;
 }
+.close{
+    border: 1px solid red;
+}
+.close:hover{
+    background-color: sandybrown;
+}
