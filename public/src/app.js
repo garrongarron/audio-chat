@@ -5,7 +5,7 @@ import showAvailableRooms from './AvailableRooms.js'
 import myPeer from './Peer.js'
 import mySelf from './MySelf.js'
 import authentication, { setCallback } from './Authentication.js'
-
+import './Chat.js'
 
 myPeer.on('open', id => {
   mySelf.id = id

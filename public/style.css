@@ -10,13 +10,14 @@
 audio {
     border: 2px solid green;
     display: block;
-    
 }
-button{
+
+button {
     width: 50px;
     height: 50px;
     border-radius: 50%;
 }
+
 ul.player {
     /* display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -24,7 +25,6 @@ ul.player {
     grid-column-gap: 10px; */
     display: flex;
     flex-flow: column;
-    
 }
 
 ul.player>li {
@@ -45,22 +45,39 @@ ul.player>li {
     color: gray
 }
 
-ul.rooms{
+ul.rooms {
     background-color: saddlebrown;
     color: white;
 }
-.rooms > li{
+
+.rooms>li {
     padding: 15px;
 }
-.rooms > li:hover{
-    background-color: sandybrown;   
+
+.rooms>li:hover {
+    background-color: sandybrown;
 }
-.hide{
+
+.hide {
     display: none !important;
 }
-.close{
+
+.close {
     border: 1px solid red;
 }
-.close:hover{
+
+.close:hover {
     background-color: sandybrown;
+}
+
+.chat {
+    display: flex;
+    flex-flow: column;
+    width: 250px;
+    margin: auto;
+}
+
+.chat > textarea {
+    height: 200px;
+    overflow-y: scroll;
 }
