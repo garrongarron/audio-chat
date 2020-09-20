@@ -4,15 +4,22 @@ import socket from './Socket.js'
 import showAvailableRooms from './AvailableRooms.js'
 import myPeer from './Peer.js'
 import mySelf from './MySelf.js'
-
-
-
+import authentication, { setCallback } from './Authentication.js'
 
 
 myPeer.on('open', id => {
-  // socket.emit('join-room', 'none', id, location.search.replace('?',''))
   mySelf.id = id
-  showAvailableRooms(mySelf, socket)
 })
+
+if (localStorage.getItem('name')) {
+  showAvailableRooms(mySelf, socket, localStorage.getItem('name'))
+} else {
+  setCallback((username) => {
+    showAvailableRooms(mySelf, socket, username)
+  })
+  document.body.appendChild(authentication)
+}
+
+
 
 socketConnections(socket)
