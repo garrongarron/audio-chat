@@ -2,6 +2,7 @@ const userList = {}
 const rooms = {}
 const setRooms = (roomId, userId) => {
     if (typeof rooms[roomId] == 'undefined') {
+        //new ROOM
         rooms[roomId] = {open:true, users:[userId]}
     } else {
         if(rooms[roomId].open){
@@ -13,7 +14,7 @@ const setRooms = (roomId, userId) => {
 }
 
 const getOpenRooms = () => {
-    let roomList = ['AAA','BBB']
+    let roomList = []
     for (const key in rooms) {
         if (rooms.hasOwnProperty(key)) {
             const room = rooms[key];
@@ -31,8 +32,13 @@ const getList = (roomId) => {
 }
 
 const removeUser = (roomId, userId) =>{
-    rooms[roomId].users = rooms[roomId].users.filter(u=>u!=userId)
     delete userList[userId]
+    rooms[roomId].users = rooms[roomId].users.filter(u=>u!=userId)
+    if(rooms[roomId].users.length==0){
+        delete rooms[roomId]
+        return false
+    }
+    return true
 }
 
 module.exports = {

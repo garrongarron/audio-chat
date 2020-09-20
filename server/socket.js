@@ -6,10 +6,6 @@ const setSocketIo = (io) => {
             socket.emit('available-rooms', getOpenRooms())//a si mismo
         })
         socket.on('join-room', (roomId, userId, username) => {
-            // if(roomId == 'none'){
-            //     socket.emit('welcome', [userId, getOpenRooms()])//a si mismo
-            //     return
-            // }
 
             socket.join(roomId)
             if(setRooms(roomId, userId)===false){
@@ -23,8 +19,9 @@ const setSocketIo = (io) => {
             socket.to(roomId).broadcast.emit('user-connected', [userId, list])//a los demas
 
             socket.on('disconnect', () => {
-                removeUser(roomId, userId)
-                socket.to(roomId).broadcast.emit('user-disconnected', [userId, getList(roomId)])//a los demas
+                if(removeUser(roomId, userId)){
+                    socket.to(roomId).broadcast.emit('user-disconnected', [userId, getList(roomId)])//a los demas
+                }
             })
         })
     })
