@@ -52,3 +52,40 @@ Luego probar la aplicacion en:
 ```
 https://localhost:3000/
 ```
+
+# DEMO SIMPLE - Chat P2P
+Ir la la url:
+
+```
+https://localhost:3000/chat.html
+```
+Y ver en la consola el id propio.
+
+Luego con otro navegador o en otra ventana. Abir la misma URL y hacer lo mismo.
+
+Colocar en el primer cuadro de texto el id de la otra ventana.
+
+Luego se podran enviar mensajes mutuamente.
+
+
+# DEMO COMPLEJA -  Lobby
+
+Ir la la url:
+
+```
+https://localhost:3000
+```
+
+Borrar el localstorage escribiendo en consola lo siguiente:
+```
+localStorage.removeItem("name")
+```
+Refrescar la pagina.
+
+Luego colocar un nombre de usuario, escribiendolo en el cuadro de texto y presionando enter.
+
+Luego, crear una sala haciendo lo mismo.
+
+Desde otro navegador. Crear usuario y seleccionar sala creada por el otro usuario.
+
+

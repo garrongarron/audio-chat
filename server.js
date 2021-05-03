@@ -14,6 +14,7 @@ const server = https.createServer(options, app)//https4
 const io = require('socket.io')(server)
 
 setSocketIo(io)
+
 app.set('port', process.env.PORT || 3000)
 server.listen(app.get('port'), function () {//https5
   console.log("My https server listening on port " + app.get('port') + "...");

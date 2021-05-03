@@ -22,8 +22,7 @@ const getOpenRooms = () => {
     let roomList = []
     for (const key in rooms) {
         if (rooms.hasOwnProperty(key)) {
-            const room = rooms[key];
-            if(room.open) roomList.push(key)
+            if(rooms[key].open) roomList.push(key)
         }
     }
     return roomList

@@ -1,6 +1,5 @@
 import populate from './UserList.js'
 
-
 let setSocket = (socket) => {
     socket.on('user-connected', data => {
         populate(data)

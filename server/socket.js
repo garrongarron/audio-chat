@@ -12,9 +12,9 @@ const setSocketIo = (io) => {
         })
         socket.on('join-room', (roomId, userId, username) => {
 
-            socket.join(roomId)
-            if(setRooms(roomId, userId)===false){
-                 return //room closed
+            socket.join(roomId)// set room
+            if(setRooms(roomId, userId)===false){//if room is closed
+                return //room closed
             }
 
             userList[userId] = username

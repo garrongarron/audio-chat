@@ -20,29 +20,29 @@ const showAvailableRooms = (mySelf, socket, username) => {
                 let li = document.createElement('li')
                 li.innerText = element
                 li.classList.add('r-' + element)
-                ul.appendChild(li)
                 li.addEventListener('click', (e) => {
                     ul.classList.add('hide')
                     clearInterval(interval)
                     mySelf.room = li.innerText
-                    socket.emit('join-room', mySelf.room, mySelf.id, username)
+                    socket.emit('join-room', mySelf.room, mySelf.id, username)//mySelf.id is definded?
                 })
+                ul.appendChild(li)
             }
         });
     })
-    let li = document.createElement('li')
-    ul.appendChild(li)
 
+    let li = document.createElement('li')
     let input = document.createElement('input')
     input.placeholder = 'Create Room'
     li.appendChild(input)
+    ul.appendChild(li)
 
     input.addEventListener('keydown', (e) => {
         if (e.keyCode == 13 && input.value.length > 3) {
             ul.classList.add('hide')
             clearInterval(interval)
             mySelf.room = input.value
-            socket.emit('join-room', input.value, mySelf.id, username)
+            socket.emit('join-room', input.value, mySelf.id, username)//Create instead of?
         }
     })
 }
