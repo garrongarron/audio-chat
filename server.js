@@ -4,7 +4,6 @@ const express = require('express')
 const app = express()
 const { setSocketIo } = require('./server/socket');
 
-
 let options = {//https3
   key: fs.readFileSync('key.pem'),
   cert: fs.readFileSync('cert.pem')
@@ -21,12 +20,9 @@ server.listen(app.get('port'), function () {//https5
     + app.get('port') + "...");
 });
 
-
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
-
-

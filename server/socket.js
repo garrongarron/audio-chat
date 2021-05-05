@@ -32,6 +32,7 @@ const setSocketIo = (io) => {
                     [userId, list])//a los demas
 
                 socket.on('disconnect', () => {
+                    socket.leave(roomId);
                     if (db.removeUser(roomId, userId)) {
                         //a los demas
                         socket.to(roomId).broadcast.emit(

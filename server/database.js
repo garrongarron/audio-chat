@@ -15,7 +15,6 @@ const setRooms = (roomId, userId) => {
 const closeRoom = (roomId) => {
     rooms[roomId].open = false
 }
-
 const getOpenRooms = () => {
     let roomList = []
     for (const key in rooms) {
@@ -32,7 +31,6 @@ const getList = (roomId) => {
     })
     return list
 }
-
 const removeUser = (roomId, userId) => {
     delete userList[userId]
     rooms[roomId].users = rooms[roomId].users
@@ -51,5 +49,4 @@ const database = {
     removeUser,
     closeRoom
 }
-
 module.exports = database

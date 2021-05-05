@@ -48,5 +48,4 @@ const showAvailableRooms = (mySelf, socket, username) => {
     })
 }
 
-
 export default showAvailableRooms
