@@ -1,8 +1,8 @@
-import socketConnections from './Connections.js'
 import socket from './Socket.js'
-import showAvailableRooms from './AvailableRooms.js'
 import myPeer from './Peer.js'
 import mySelf from './MySelf.js'
+import showAvailableRooms from './AvailableRooms.js'
+import socketConnections from './Connections.js'
 import authentication, { setCallback } from './Authentication.js'
 
 
@@ -19,4 +19,5 @@ if (!localStorage.getItem('name')) {
     showAvailableRooms(mySelf, socket, username)
   })
 }
+
 socketConnections(socket)

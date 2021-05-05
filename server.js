@@ -17,7 +17,8 @@ setSocketIo(io)
 
 app.set('port', process.env.PORT || 3000)
 server.listen(app.get('port'), function () {//https5
-  console.log("My https server listening on port " + app.get('port') + "...");
+  console.log("My https server listening on port "
+    + app.get('port') + "...");
 });
 
 

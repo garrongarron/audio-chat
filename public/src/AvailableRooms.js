@@ -1,4 +1,5 @@
 let interval = null
+
 const showAvailableRooms = (mySelf, socket, username) => {
     interval = setInterval(() => {
         socket.emit('get-rooms', '')
@@ -8,8 +9,6 @@ const showAvailableRooms = (mySelf, socket, username) => {
     document.body.appendChild(ul)
 
     socket.on('available-rooms', data => {
-        let current = []
-        console.log(data);
         ul.querySelectorAll('li[class^=r]').forEach(li => {
             if (!data.includes(li.innerText)) {
                 li.remove()
@@ -24,7 +23,8 @@ const showAvailableRooms = (mySelf, socket, username) => {
                     ul.classList.add('hide')
                     clearInterval(interval)
                     mySelf.room = li.innerText
-                    socket.emit('join-room', mySelf.room, mySelf.id, username)//mySelf.id is definded?
+                    socket.emit('join-room',
+                        mySelf.room, mySelf.id, username)
                 })
                 ul.appendChild(li)
             }
@@ -42,7 +42,8 @@ const showAvailableRooms = (mySelf, socket, username) => {
             ul.classList.add('hide')
             clearInterval(interval)
             mySelf.room = input.value
-            socket.emit('join-room', input.value, mySelf.id, username)//Create instead of?
+            socket.emit('join-room',
+                input.value, mySelf.id, username)
         }
     })
 }
